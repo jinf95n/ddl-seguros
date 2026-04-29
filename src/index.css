@@ -1,0 +1,135 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --color-cta: var(--cta);
+  --color-cta-foreground: var(--cta-foreground);
+  --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* DDL SEGUROS palette: deep navy + white + orange CTA + green WhatsApp */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.18 0.04 260);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.04 260);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.04 260);
+
+  /* Primary = deep navy blue (trust) */
+  --primary: oklch(0.27 0.09 260);
+  --primary-foreground: oklch(0.98 0.005 250);
+
+  --secondary: oklch(0.96 0.01 250);
+  --secondary-foreground: oklch(0.27 0.09 260);
+
+  --muted: oklch(0.965 0.008 250);
+  --muted-foreground: oklch(0.5 0.03 258);
+
+  --accent: oklch(0.95 0.03 250);
+  --accent-foreground: oklch(0.27 0.09 260);
+
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(0.98 0.005 250);
+
+  --border: oklch(0.92 0.01 255);
+  --input: oklch(0.92 0.01 255);
+  --ring: oklch(0.27 0.09 260);
+
+  /* CTA = warm orange */
+  --cta: oklch(0.72 0.18 50);
+  --cta-foreground: oklch(0.99 0.005 80);
+
+  /* WhatsApp green */
+  --whatsapp: oklch(0.7 0.18 150);
+  --whatsapp-foreground: oklch(0.99 0.005 150);
+
+  /* Gradients & shadows */
+  --gradient-hero: linear-gradient(135deg, oklch(0.22 0.09 260) 0%, oklch(0.32 0.11 265) 60%, oklch(0.42 0.13 250) 100%);
+  --gradient-cta: linear-gradient(135deg, oklch(0.74 0.18 55), oklch(0.68 0.2 35));
+  --shadow-soft: 0 10px 30px -12px oklch(0.27 0.09 260 / 0.18);
+  --shadow-cta: 0 12px 28px -10px oklch(0.7 0.2 45 / 0.55);
+  --shadow-card: 0 8px 24px -14px oklch(0.27 0.09 260 / 0.25);
+}
+
+.dark {
+  --background: oklch(0.16 0.04 260);
+  --foreground: oklch(0.98 0.005 250);
+  --card: oklch(0.22 0.06 260);
+  --card-foreground: oklch(0.98 0.005 250);
+  --popover: oklch(0.22 0.06 260);
+  --popover-foreground: oklch(0.98 0.005 250);
+  --primary: oklch(0.85 0.05 250);
+  --primary-foreground: oklch(0.2 0.06 260);
+  --secondary: oklch(0.28 0.05 260);
+  --secondary-foreground: oklch(0.98 0.005 250);
+  --muted: oklch(0.28 0.05 260);
+  --muted-foreground: oklch(0.72 0.03 255);
+  --accent: oklch(0.28 0.05 260);
+  --accent-foreground: oklch(0.98 0.005 250);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.7 0.05 255);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-hero { background-image: var(--gradient-hero); }
+  .bg-gradient-cta { background-image: var(--gradient-cta); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-cta { box-shadow: var(--shadow-cta); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+}
