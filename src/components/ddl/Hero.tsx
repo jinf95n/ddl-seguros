@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import { MessageCircle, ArrowRight, ShieldCheck, Clock, Building2, ChevronDown } from "lucide-react";
+import { MessageCircle, ArrowRight, ShieldCheck, ChevronDown } from "lucide-react";
 import heroImage from "@/assets/insurance-family.png";
 
 const WHATSAPP_URL = "https://wa.me/5491136284033?text=Hola%20DDL%20Seguros%2C%20quiero%20una%20cotizaci%C3%B3n";
